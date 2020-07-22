@@ -7,7 +7,7 @@ tail_win=0
 tie=0
 function flipCoin
 {
-	while [ $head_win -ne 21 ] && [ $tail_win -ne 21 ]
+	for (( i=0; i<=25; i++ ))
 	do
 		flip=$((RANDOM%2))
 		if [ $flip -eq $heads ]
@@ -19,6 +19,7 @@ function flipCoin
 				echo "Tails"
 				((tail_win++))
 		else
+				((tie++))
 				echo "It's a Tie " 
 		fi
 	done
@@ -37,7 +38,8 @@ function  who_Win
 	 elif [ $tail_win -eq $head_win ]
    then
          echo "IT's a Tie Play again"
-			
+			flipCoin
+			who_Win
 	else
 			exit
 	fi
