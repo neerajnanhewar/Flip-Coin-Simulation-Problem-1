@@ -4,6 +4,7 @@ heads=1
 tails=0
 head_win=0
 tail_win=0
+tie=0
 function flipCoin
 {
 	while [ $head_win -ne 21 ] && [ $tail_win -ne 21 ]
@@ -33,8 +34,12 @@ function  who_Win
 	then
 			wonTime=$(($tail_win-$head_win))
 			echo "Tail wins" $wonTime "Times"
+	 elif [ $tail_win -eq $head_win ]
+   then
+         echo "IT's a Tie Play again"
+			
 	else
-			echo "It's a Tie"
+			exit
 	fi
 }
 
