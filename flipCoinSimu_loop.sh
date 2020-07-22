@@ -15,5 +15,7 @@ function flipCoin
 			exit
 	fi
 }
-
+for ((i=0;i<=20;i++))
+do
 flipCoin
+done
